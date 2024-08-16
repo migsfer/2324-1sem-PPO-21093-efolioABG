@@ -1,0 +1,46 @@
+cd ~/ownCloud/UAB/UCs/2324-1sem/PPO-21093/eFolioG/entrega
+tar -cvzf 2200169_efolioGlobal.zip --transform 's,^,2200169_efolioGlobal/,' *
+
+
+
+
+
+# ***** efolioG 20240228 abaixo *****
+
+"simplíssimo", in Dicionário Priberam da Língua Portuguesa [em linha], 2008-2024, https://dicionario.priberam.org/simpl%C3%ADssimo.
+# ***** efolioG 20240228 acima  *****
+
+
+class TeamStats:
+    def __init__(self, team_obj):
+        self.team_obj = team_obj
+    
+    def total_goals(self):
+        total_goals = 0
+        for player in self.team_obj.list_playrs:
+            total_goals += player.goals
+        return total_goals
+    
+    def average_age(self):
+        total_age = 0
+        for player in self.team_obj.list_playrs:
+            total_age += player.age
+        return total_age / len(self.team_obj.list_playrs)
+    
+    def num_midfielders(self):
+        num_midfielders = 0
+        for player in self.team_obj.list_playrs:
+            if player.postn == "midfielder":
+                num_midfielders += 1
+        return num_midfielders
+
+# Example usage
+player1 = player("John", "forward", 10, 25)
+player2 = player("Alice", "midfielder", 5, 30)
+player3 = player("Bob", "midfielder", 3, 28)
+team_obj = team("Team A", [player1, player2, player3])
+
+stats = TeamStats(team_obj)
+print("Total goals:", stats.total_goals())
+print("Average age:", stats.average_age())
+print("Number of midfielders:", stats.num_midfielders())
